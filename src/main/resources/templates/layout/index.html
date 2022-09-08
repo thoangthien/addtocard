@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(main)">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&amp;display=swap"
+		rel="stylesheet">
+
+	<!-- Css Styles -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/elegant-icons.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/nice-select.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/jquery-ui.min.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/owl.carousel.min.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/slicknav.min.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+
+<body ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
+
+	<div th:replace="/layout/_header.html"></div>
+
+	<div th:replace="/layout/_menu.html"></div>
+
+	<!-- <div th:replace="/layout/_nav.html"></div> -->
+
+
+	<div th:replace="${main}"></div>
+
+	<div th:replace="/layout/_footer.html"></div>
+
+	<script src="/assets/js/shopping-cart-app.js"></script>
+	<script src="/assets/js/jquery-3.3.1.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/jquery.nice-select.min.js"></script>
+	<script src="/assets/js/jquery-ui.min.js"></script>
+	<script src="/assets/js/jquery.slicknav.js"></script>
+	<script src="/assets/js/mixitup.min.js"></script>
+	<script src="/assets/js/owl.carousel.min.js"></script>
+	<script src="/assets/js/main.js"></script>
+	<script src="/assets/admin/product/product-ctrl.js"></script>
+</body>
+
+</html>

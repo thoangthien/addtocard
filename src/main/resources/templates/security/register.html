@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="/assets/css/login.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="dk-app" ng-controller="dk-ctrl">
+	<div class="login-root">
+		<div class="box-root flex-flex flex-direction--column" style="min-height: 100vh; flex-grow: 1;">
+			<div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+				<div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+					<h1>
+						<a th:href="@{/index}" class="navbar-brand">Concept</a>
+					</h1>
+
+				</div>
+				<div class="formbg-outer">
+					<div class="formbg">
+						<div class="formbg-inner padding-horizontal--48">
+							<span class="padding-bottom--15">Sign up</span>
+							<!-- <form id="stripe-login" modelAttribute="register" action="/register" method="post"> -->
+							<div class="field padding-bottom--24">
+								<label>Username</label> <input type="text" ng-model="form.username">
+							</div>
+							<div class="field padding-bottom--24">
+								<label>Fullname</label> <input type="text" ng-model="form.password">
+							</div>
+							<div class="field padding-bottom--24">
+								<label>Email</label> <input type="email" ng-model="form.fullname">
+							</div>
+							<div class="field padding-bottom--24">
+								<label>Password</label> <input type="password" ng-model="form.email">
+							</div>
+
+							<div class="field padding-bottom--24">
+								<button ng-click="create()">Continue</button>
+							</div>
+							<div class="field">
+								<a class="ssolink" th:href="@{/security/login/form}">Sign in to your account</a>
+							</div>
+							<!-- </form> -->
+						</div>
+					</div>
+					<div class="footer-link padding-top--24"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/assets/admin/account/dk-ctrl.js"></script>
+</body>
+
+</html>

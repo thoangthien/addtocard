@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<!-- đưa thể main của trang checkout vào trang layout -->
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Order List</title>
+</head>
+<body>
+		<main>
+		<section class="breadcrumb-section set-bg" data-setbg="">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<div class="breadcrumb__text">
+							<h2 style="color: #7fad39;">danh sach da mua</h2>
+							<div class="breadcrumb__option">
+								<a th:href="@{/index}" style="color: #000000;">TRANG CHU</a>
+								<b>-</b><span style="color: #000000;"> da mua</span>
+								<hr style="border: 3px solid #7fad39;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="shoping-cart spad">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="shoping__cart__table">
+							<table>
+								<thead>
+									<tr>
+										<th class="shoping__product">stt</th>
+										<th>ma don hang</th>
+										<th>ngay mua</th>
+										<th>dia chi</th>
+										<th></th>
+									</tr>
+								</thead>
+
+								<tr th:each="order,state : ${orders}">
+									<td class="shoping__cart__item">[[${state.index}]]</td>
+									<td class="shoping__cart__item">[[${order.id}]]</td>
+									<td class="shoping__cart__item">[[${order.createdate}]]</td>
+									<td class="shoping__cart__item">[[${order.address}]]</td>
+									<td class="shoping__cart__item__close">
+										<span class="icon">
+											<a class="primary-btn cart-btn cart-btn-right"
+												th:href="@{|/order/detail/*{order.id}|}">chi tiet</a>
+										</span>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="shoping__cart__btns">
+							<a th:href="@{/index}" class="primary-btn cart-btn">tiep tuc mua sam</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+</html>

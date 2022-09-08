@@ -1,0 +1,64 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-sm-4 text-center">
+					<label for="photo" >
+						<img ng-src="{{'/assets/images/' + form.photo}}" style="width: 200px" />
+					</label>
+				</div>
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<div>username</div>
+							<input type="text" class="form-control" ng-model="form.username" />
+						</div>
+
+						<div class="form-group col-sm-6">
+							<div>password</div>
+							<input type="text" class="form-control" ng-model="form.password" />
+						</div>
+
+						<div class="form-group col-sm-6">
+							<div>fullname</div>
+							<input type="text" class="form-control" ng-model="form.fullname" />
+						</div>
+
+						<div class="form-group col-sm-6">
+							<div>email</div>
+							<input type="text" class="form-control" ng-model="form.email" />
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<div>photo</div>
+							<input type="file" class="form-control" id="photo"
+								ng-model="form.photo"
+								onchange="angular.element(this).scope().imageChange(this.files)" />
+						</div>
+					</div>
+					<div class="form-group col-sm-6">
+							<div>Role</div>
+							<select class="form-control" ng-model="form.authority.role.id">
+								<option ng-repeat="r in roles" ng-value="r.id">
+									{{r.name}}</option>
+							</select>
+						</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<button ng-click="create()">Create	</button>
+
+			<button ng-click="update()" > Update
+			</button>
+
+			<button ng-click="delete(form)" > Delete
+			</button>
+
+			<button ng-click="reset()" > Reset
+			</button>
+		</div>
+	</div>
+</div>

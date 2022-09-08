@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="/assets/css/login.css">
+</head>
+
+<body>
+	<main>
+		<div class="login-root">
+		<div class="box-root flex-flex flex-direction--column"
+			style="min-height: 100vh; flex-grow: 1;">
+			<div
+				class="box-root padding-top--24 flex-flex flex-direction--column"
+				style="flex-grow: 1; z-index: 9;">
+				<div
+					class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+					<h1>
+						<a th:href="@{/index}" class="navbar-brand">Concept</a>
+					</h1>
+
+				</div>
+				<div class="formbg-outer">
+					<div class="formbg">
+						<div class="formbg-inner padding-horizontal--48">
+							<span class="padding-bottom--15">Sign in to your account</span>
+							
+							<form id="stripe-login" th:action="@{/security/login}" method="post">
+								<div class="field padding-bottom--24">
+									<label for="email">Username</label>
+									<input name="username" />
+								</div>
+								<div class="field padding-bottom--24">
+									<div class="grid--50-50">
+										<label for="password">Password</label>
+										<div class="reset-pass">
+											<a href="#">Forgot your password?</a>
+										</div>
+									</div>
+									<input type="password" name="password" />
+									<!-- <form:errors path="password" cssStyle="color: chocolate" /> -->
+								</div>
+								<div class="field field-checkbox padding-bottom--24 flex-flex align-center">
+									<label for="checkbox"> 
+									<input type="checkbox" class="checkmark" name="remember-me" value="true"> Remember me ?
+									</label>
+								</div>
+								<div class="field padding-bottom--24">
+									<input type="submit" name="submit" value="dang nhap">
+								</div>
+								<!-- 
+								<div class="field">
+									<a class="ssolink" href="/oauth2/authorization/google">Use single sign-on (Google) instead</a>
+								</div>
+								 -->
+							</form>
+						</div>
+					</div>
+					<div class="footer-link padding-top--24">
+						<span>Don't have an account? <a th:href="@{/security/register}">Sign
+								up</a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<!-- <i th:text="${mess}" style="color: red"></i>
+
+	<form th:action="@{/security/login}" method="post">
+		<input name="username" placeholder="username"> <br> <input
+			name="password" type="password" placeholder="password"> <br> <input
+			type="checkbox" name="remember-me"> Remember me? <br>
+		<button>Login</button>
+		
+	</form> -->
+	</main>
+</body>
+
+</html>

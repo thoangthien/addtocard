@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" th:replace="~{/layout/index :: dynamic(~{::main})}">
+<!-- đưa thể main của trang checkout vào trang layout -->
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Order checkout</title>
+</head>
+
+<body>
+
+	<main th:object="${order}">
+		<section class="breadcrumb-section set-bg" data-setbg="">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<div class="breadcrumb__text">
+							<h2 style="color: #7fad39;">chi tiet don hang</h2>
+							<div class="breadcrumb__option">
+								<a th:href="@{/index}" style="color: #000000;">TRANG CHU</a>
+								<b>-</b><span style="color: #000000;"> chi tiet</span>
+								<hr style="border: 3px solid #7fad39;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="shoping-cart spad">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="shoping__cart__table">
+
+							<table>
+								<thead>
+									<tr>
+										<th class="shoping__product">ma don hang</th>
+										<th>ten nguoi mua</th>
+										<th>ngay mua</th>
+										<th>dia chi</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tr>
+									<td class="shoping__cart__item" th:utext="${order.id}"></td>
+									<td class="shoping__cart__item" th:utext="${order.account.username}"></td>
+									<td class="shoping__cart__item" th:utext="${order.createdate}"></td>
+									<td class="shoping__cart__item" th:utext="${order.address}"></td>
+									<td class="shoping__cart__item__close"> </td>
+								</tr>
+							</table><br><br><br>
+
+							<table>
+								<thead>
+									<tr>
+										<th class="shoping__product">ma san pham</th>
+										<th>ten san pham</th>
+										<th>gia</th>
+										<th>so luong</th>
+										<th>tong thanh toan</th>
+										<th></th>
+									</tr>
+								</thead>
+
+								<tr th:each="detail: *{orderdetails}">
+									<td class="shoping__cart__item" th:utext="${order.createdate}"></td>
+									<td class="shoping__cart__item" th:utext="${detail.product.name}"></td>
+									<td class="shoping__cart__item">$ [[${detail.price}]]</td>
+									<td class="shoping__cart__item" th:utext="${detail.quantity}"></td>
+									<td class="shoping__cart__item">$ [[${detail.price * detail.quantity}]]</td>
+									<td class="shoping__cart__item__close">
+										<span class="icon">
+											<a class="primary-btn cart-btn cart-btn-right" th:href="@{|/product/detail/${detail.product.id}|}">mua lai</a>
+										</span>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="shoping__cart__btns">
+							<a th:href="@{/index}" class="primary-btn cart-btn">tiep tuc mua sam</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+
+</html>

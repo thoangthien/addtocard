@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" th:replace="~{/layout/index :: dynamic(~{::main})}">
+<!-- đưa thể main của trang checkout vào trang layout -->
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Order checkout</title>
+</head>
+
+<body>
+	<main>
+		<!-- <section th:replace="~{/cart/view::shopping_cart}"></section> -->
+		<section class="breadcrumb-section set-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<div class="breadcrumb__text">
+							<h2 style="color: #7fad39;" th:text="#{menu.checkout}">Thanh Toan</h2>
+							<div class="breadcrumb__option">
+								<a th:href="@{/index}" ><span style="color: #000000;" th:text="#{menu.home}"></span> </a>
+								<span style="color: #000000;" th:text="#{menu.checkout}"> </span>
+								<hr style="border: 3px solid #7fad39;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="checkout spad">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<h6>
+							<span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click
+								here</a> to enter your code
+						</h6>
+					</div>
+				</div>
+				<div class="checkout__form">
+					<h4>chi tiet thanh toan</h4>
+
+					<!-- <form action="checkout" method="post"> -->
+					<div class="row">
+						<div class="col-lg-8 col-md-6">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="checkout__input">
+										<p th:text="#{checkout.name}"> <span>*</span> </p>
+										<div class="form-control" id="username">[[${#request.remoteUser}]]</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-12">
+									<div class="checkout__input">
+										<p th:text="#{checkout.date}"> <span>*</span> </p>
+									<div class="form-control">{{order.createdate | date:'dd-MM-yyyy'}}</div>
+									</div>
+								</div>
+							</div>
+							<div class="checkout__input">
+								<p th:text="#{checkout.address}"> <span>*</span> </p>
+								<input class="checkout__input__add" ng-model="order.address" />
+							</div>
+							<div class="col-lg-6">
+							<div class="shoping__cart__btns">
+								<a th:href="@{/index}" class="primary-btn cart-btn"><span th:text="#{cart.continue}"></span></a>
+							</div>
+						</div>
+
+						</div>
+
+
+						<div class="col-lg-4 col-md-6" >
+							<div class="checkout__order">
+								<h4 th:text="#{menu.order}"></h4>
+								<div class="checkout__order__products">san pham
+									 <span>Tong tien</span>
+								</div>
+								
+								<ul ng-repeat="i in cart.items">
+									<li>{{i.name}}<span>$ {{i.price | number:2}}</span></li>
+								</ul>
+								
+								<div class="checkout__order__total" >
+									tong thanh toan <span>${{cart.amount }}</span>
+								</div>
+
+								<button ng-click="order.dac_hang()" class="site-btn" th:text="#{cart.next}"></button>
+							</div>
+						</div>
+					</div>
+				<!-- </form> -->
+
+			</div>
+		</div>
+	</section>
+		</main>
+</body>
+</html>

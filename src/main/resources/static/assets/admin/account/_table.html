@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <table class="table table-condensed">
+      <thead class="bg-success" style="font-variant: small-caps">
+        <tr>
+          <th>username</th>
+          <th>password</th>
+          <th>fullname</th>
+          <th>email</th>
+          <th>image</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="p in pager.items">
+          <td>{{p.username}}</td>
+          <td>{{p.password}}</td>
+          <td>{{p.fullname}}</td>
+          <td>{{p.email}}</td>
+          <td>{{p.photo}}</td>
+          
+          <td>
+            <div class="btn-group btn-group-xs">
+              <button ng-click="edit(p)">edit</button>
+              <button ng-click="delete(p)">delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="panel-footer text-center">
+      <button ng-click="pager.first()">first</button>
+      <button ng-click="pager.pre()"> pre </button>
+      <button> {{pager.page +1}} of {{pager.count}} </button>
+      <button ng-click="pager.next()"> next</button>
+      <button ng-click="pager.last()">last</button>
+    </div>
+
+  </div>
+</div>
